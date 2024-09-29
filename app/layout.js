@@ -1,6 +1,3 @@
-import Logo from "@/app/_components/Logo";
-import Navigation from "@/app/_components/Navigation";
-
 import "@/app/_styles/globals.css";
 import { Josefin_Sans } from "next/font/google";
 import Header from "@/app/_components/Header";
@@ -13,6 +10,7 @@ export const metadata = {
     template: "%s / The Wild Oasis",
     defaults: "Welcome / The Wild Oasis",
   },
+
   description:
     "Luxurious cabin hotel, located in the heart of the Itailan Dolomites, surrounded by beautiful mountains and dark forests",
 };
@@ -20,13 +18,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body
-        className={`${josefin.className} bg-primary-950 text-primary-100  min-h-screen flex flex-col antialiased relative`}
+        className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen flex flex-col antialiased relative`}
       >
         <Header />
 
-        <div className="flex-1 px-8 py-12 grid">
-          <main className="max-w-7xl mx-auto w-full">
+        <div className="flex-1 px-4 md:px-8 py-4 md:py-12 grid">
+          <main className="w-full max-w-full md:max-w-7xl mx-auto">
             <ReservationProvider>{children}</ReservationProvider>
           </main>
         </div>

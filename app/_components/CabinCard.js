@@ -12,11 +12,11 @@ function CabinCard({ cabin }) {
           src={image}
           fill
           alt={`Cabin ${name}`}
-          className="object-cover flex-1 border-r border-primary-800"
+          className="object-cover flex-1 border-r border-primary-800 "
         />
       </div>
 
-      <div className="flex-grow">
+      <div className="sm:flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-2xl mb-3">
             Cabin {name}
@@ -49,7 +49,7 @@ function CabinCard({ cabin }) {
         <div className="bg-primary-950 border-t border-t-primary-800 text-right">
           <Link
             href={`/cabins/${id}`}
-            className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
+            className="md:border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
           >
             Details & reservation &rarr;
           </Link>

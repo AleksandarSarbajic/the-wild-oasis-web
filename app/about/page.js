@@ -2,6 +2,7 @@ import Image from "next/image";
 import image1 from "@/public/about-1.jpg";
 import image2 from "@/public/about-2.jpg";
 import { getCabins } from "../_lib/data-service";
+
 export const metadata = {
   title: "About",
   description: "About this site",
@@ -13,8 +14,9 @@ export default async function Page() {
   const cabins = await getCabins();
 
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
-      <div className="col-span-3">
+    <div className="grid grid-cols-5 gap-x-12 sm:gap-x-24 gap-y-20 sm:gap-y-32 text-lg items-center">
+      {/* First text block */}
+      <div className="col-span-5 md:col-span-3">
         <h1 className="text-4xl mb-10 text-accent-400 font-medium">
           Welcome to The Wild Oasis
         </h1>
@@ -41,7 +43,8 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
+      {/* First image block */}
+      <div className="col-span-5 md:col-span-2">
         <Image
           src={image1}
           alt="Family sitting around a fire pit in front of cabin"
@@ -50,25 +53,7 @@ export default async function Page() {
         />
       </div>
 
-      <div className="col-span-2">
-        <Image
-          src={image2}
-          alt="Family that manages The Wild Oasis"
-          placeholder="blur"
-          quality={80}
-        />
-      </div>
-      {/* CANT STATICK IMPORT */}
-      {/* <div className="relative aspect-square col-span-2">
-        <Image
-          src={Image2}
-          fill
-          alt="Family that manages The Wild Oasis"
-          className="object-cover"
-        />
-      </div> */}
-
-      <div className="col-span-3">
+      <div className="col-span-5 md:col-span-3 order-1 md:order-none">
         <h1 className="text-4xl mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
         </h1>
@@ -98,6 +83,15 @@ export default async function Page() {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="col-span-5 md:col-span-2 order-2 md:order-none">
+        <Image
+          src={image2}
+          alt="Family that manages The Wild Oasis"
+          placeholder="blur"
+          quality={80}
+        />
       </div>
     </div>
   );

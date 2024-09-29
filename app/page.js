@@ -4,18 +4,18 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="mt-24 ">
+    <div className="mt-24">
       <Image
         src={bg}
         alt="Mountains and forests with two cabins"
         fill
         quality={80}
         placeholder="blur"
-        className="object-cover object-top"
+        className="object-cover object-bottom"
       />
 
-      <div className="relative z-10 text-center">
-        <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
+      <div className="relative text-center">
+        <h1 className="text-5xl sm:text-8xl text-primary-50 mb-10 tracking-tight font-normal break-all">
           Welcome to paradise.
         </h1>
         <Link
@@ -25,6 +25,6 @@ export default function Page() {
           Explore luxury cabins
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

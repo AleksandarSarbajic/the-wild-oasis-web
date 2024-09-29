@@ -1,22 +1,12 @@
-import { loadStripe } from "@stripe/stripe-js";
+import "server-only";
 
-export const bookCabin = async (tourId) => {
-  const stripe = await loadStripe(
-    "pk_test_51PZ7wRFRiPUJXBu9wSb2k4CiIaXpO7S049D6uDpcZRHzbXr4mk33BcL7fC1hBCD0nKcn5S6KGjzPj3JZbVKevXBc00UyAwTyye"
-  );
+import Stripe from "stripe";
 
-  try {
-    // 1) Get Checkout session
-    const response = await axios.get(
-      `/api/v1/bookings/checkout-session/${tourId}`
-    );
-    const session = response.data.session;
-
-    // 2) Redirect to checkout form
-    await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  // https://github.com/stripe/stripe-node#configuration
+  apiVersion: "2023-10-16",
+  appInfo: {
+    name: "nextjs-with-stripe-typescript-demo",
+    url: "http://localhost:3000",
+  },
+});

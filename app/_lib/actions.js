@@ -1,46 +1,70 @@
 "use server";
 
-import Stripe from "stripe";
-// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 import { getBookings } from "./data-service";
 import { redirect } from "next/navigation";
 
-// export async function getCheckoutSession(formData) {
-//   if (req.method === "POST") {
-//     try {
-//       // Create Checkout Sessions from body params.
-//       const session = await stripe.checkout.sessions.create({
-//         line_items: [
-//           {
-//             price_data: {
-//               unit_amount: 100,
-//               currency: "usd",
-//               product_data: {
-//                 name: "bugga",
-//                 description: `nigga`,
-//                 images: [],
-//               },
-//             },
-//             quantity: 1,
-//           },
-//         ],
-//         payment_method_types: ["card"],
-//         mode: "payment",
-//         success_url: `${req.headers.origin}/?success=true`,
-//         cancel_url: `${req.headers.origin}/?canceled=true`,
-//       });
-//       res.redirect(303, session.url);
-//     } catch (err) {
-//       res.status(err.statusCode || 500).json(err.message);
-//     }
-//   } else {
-//     res.setHeader("Allow", "POST");
-//     res.status(405).end("Method Not Allowed");
-//   }
-// }
+import { headers } from "next/headers";
+
+import { CURRENCY } from "../_config";
+import { formatAmountForStripe } from "../_utils/stripe-helpers";
+import { stripe } from "./stripe";
+
+export async function createCheckoutSession(data, bookingData) {
+  const bookingItem = {
+    quantity: 1,
+    price_data: {
+      currency: CURRENCY,
+      product_data: {
+        name: `${bookingData.numNights} nights in Cabin ${bookingData.cabins.name}`,
+        description: `${bookingData.numGuests} guest${
+          bookingData.numNights > 1 && "s"
+        }`,
+        images: [bookingData.cabins.image],
+      },
+      unit_amount: formatAmountForStripe(bookingData.totalPrice, CURRENCY),
+    },
+  };
+  const ui_mode = data.get("uiMode");
+
+  const origin = headers().get("origin");
+
+  const checkoutSession = await stripe.checkout.sessions.create({
+    mode: "payment",
+    submit_type: "pay",
+    phone_number_collection: {
+      enabled: true,
+    },
+    client_reference_id: bookingData.id,
+
+    line_items: [bookingItem],
+    ...(ui_mode === "hosted" && {
+      success_url: `${origin}/account/result?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/account`,
+    }),
+    ...(ui_mode === "embedded" && {
+      return_url: `${origin}/donate-with-embedded-checkout/result?session_id={CHECKOUT_SESSION_ID}`,
+    }),
+    ui_mode,
+  });
+
+  return {
+    client_secret: checkoutSession.client_secret,
+    url: checkoutSession.url,
+  };
+}
+
+export async function createPaymentIntent(data) {
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: formatAmountForStripe(Number(data.get("customDonation")), CURRENCY),
+    automatic_payment_methods: { enabled: true },
+    currency: CURRENCY,
+  });
+
+  return { client_secret: paymentIntent.client_secret };
+}
 
 export async function updateGuest(formData) {
   const session = await auth();
@@ -74,8 +98,7 @@ export async function createBooking(bookingData, formData) {
     guestId: session.user.guestId,
     numGuests: Number(formData.get("numGuests")),
     observations: formData.get("observations").slice(0, 1000),
-    extrasPrice: 0,
-    totalPrice: bookingData.cabinPrice + (hasBreakfast === true ? 200 : 0),
+    totalPrice: bookingData.cabinPrice + (hasBreakfast === "true" ? 200 : 0),
     extrasPrice: hasBreakfast === "true" ? 200 : 0,
     isPaid: false,
     hasBreakfast: hasBreakfast,
@@ -151,6 +174,27 @@ export async function updateBooking(formData) {
 
   // 7) Redirecting
   redirect("/account/reservations");
+}
+
+export async function updateBookingHook(booking) {
+  try {
+    const { data, error } = await supabase
+      .from("bookings")
+      .update({ isPaid: true, status: "checked-in" })
+      .eq("id", 393)
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Booking update error:", error);
+      throw new Error(`Booking could not be updated: ${error.message}`);
+    }
+
+    return data; // Returning the updated booking data
+  } catch (err) {
+    // Catch any other unexpected errors
+    throw new Error(`An unexpected error occurred: ${err.message}`);
+  }
 }
 
 export async function signInAction() {

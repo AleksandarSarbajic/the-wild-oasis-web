@@ -52,6 +52,27 @@ export const getCabins = async function () {
   return data;
 };
 
+export const getUpcomingUnpaidBookings = async function (guestId) {
+  const date = new Date();
+  const { data, error, count } = await supabase
+    .from("bookings")
+    // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
+    .select(
+      "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId,extrasPrice, cabins(name, image)"
+    )
+    .eq("guestId", guestId)
+    .eq("isPaid", false)
+    .gte("startDate", date.toISOString())
+    .order("startDate");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Bookings could not get loaded");
+  }
+
+  return data;
+};
+
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {
   const { data, error } = await supabase

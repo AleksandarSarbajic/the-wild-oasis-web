@@ -31,7 +31,7 @@ function SideNavigation() {
 
   return (
     <nav className="border-r border-primary-900">
-      <ul className="flex flex-col gap-2 h-full text-lg">
+      <ul className="flex flex-wrap lg:flex-col gap-2 lg:h-full text-lg">
         {navLinks.map((link) => (
           <li key={link.name}>
             <Link
@@ -46,7 +46,7 @@ function SideNavigation() {
           </li>
         ))}
 
-        <li className="mt-auto">
+        <li className="m-0 sm:ml-auto lg:mt-auto ">
           <SignOutButton />
         </li>
       </ul>
