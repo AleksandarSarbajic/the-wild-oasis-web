@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-import { stripe } from "@/lib/stripe";
-import { updateBookingHook } from "@/app/_lib/actions";
+import { stripe } from "../../../app/_lib/stripe";
+import { updateBookingHook } from "../../../app/_lib/actions";
 
 export async function POST(req) {
   let event;
