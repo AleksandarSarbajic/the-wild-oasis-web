@@ -11,9 +11,9 @@ import {
 import CustomDonationInput from "./CustomDonationInput";
 import StripeTestCards from "./StripeTestCards";
 
-import { formatAmountForDisplay } from "@/utils/stripe-helpers";
+import { formatAmountForDisplay } from "../_utils/stripe-helpers";
 import * as config from "@/config";
-import getStripe from "@/utils/get-stripejs";
+import getStripe from "../_utils/get-stripejs";
 import { createPaymentIntent } from "@/actions/stripe";
 
 function CheckoutForm() {

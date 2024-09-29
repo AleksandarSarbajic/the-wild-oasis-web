@@ -1,4 +1,5 @@
-import { stripe } from "@/utils/stripe";
+// import { stripe } from "@/utils/stripe";
+import { stripe } from "../_utils/stripe";
 
 async function getSession(sessionId) {
   const session = await stripe.checkout.sessions.retrieve(sessionId);
