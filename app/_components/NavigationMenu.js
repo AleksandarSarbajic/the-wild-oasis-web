@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -71,10 +72,12 @@ function NavigationMenu({ session }) {
               href="/account"
               className="hover:text-accent-400 transition-colors flex items-center gap-4"
             >
-              <img
+              <Image
                 className="h-8 rounded-full"
                 src={session.user.image}
                 alt={session.user.name}
+                width={32}
+                height={32}
                 referrerPolicy="no-referrer"
               />
               <span>Guest area</span>
