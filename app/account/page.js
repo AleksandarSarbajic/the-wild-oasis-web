@@ -18,12 +18,14 @@ async function Page() {
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
         Welcome, {firstName}
       </h2>
-      <>
-        <h2 className="font-semibold text-xl text-accent-400 mb-4">
-          Unpaid Reservations
-        </h2>
-        <ReservationList bookings={bookings} paying={true} />
-      </>
+      {bookings.length > 0 && (
+        <>
+          <h2 className="font-semibold text-xl text-accent-400 mb-4">
+            Unpaid Reservations
+          </h2>
+          <ReservationList bookings={bookings} paying={true} />
+        </>
+      )}
     </div>
   );
 }

@@ -86,9 +86,11 @@ function DateSelector({ settings, cabin, bookedDates }) {
             )}
             <span>/night</span>
           </p>
-          <p className="bg-accent-600 px-3 py-2 text-2xl">
-            <span>&times;</span> <span>{numNights}</span>
-          </p>
+          {numNights ? (
+            <p className="bg-accent-600 px-3 py-2 text-2xl">
+              <span>&times;</span> <span>{numNights}</span>
+            </p>
+          ) : null}
         </div>
         <div className="flex justify-center items-center gap-3">
           {numNights ? (

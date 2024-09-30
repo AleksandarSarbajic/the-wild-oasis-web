@@ -3,10 +3,5 @@ export const metadata = {
 };
 
 export default function ResultLayout({ children }) {
-  return (
-    <div className="page-container">
-      <h1>Checkout Session Result</h1>
-      {children}
-    </div>
-  );
+  return <div className="flex justify-center">{children}</div>;
 }

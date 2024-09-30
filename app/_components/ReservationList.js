@@ -1,7 +1,7 @@
 "use client";
 
 import ReservationCard from "./ReservationCard";
-import { deleteReservation, updateBookingHook } from "../_lib/actions";
+import { deleteReservation } from "../_lib/actions";
 
 import { useOptimistic } from "react";
 
@@ -20,7 +20,6 @@ function ReservationList({ bookings, paying }) {
 
   return (
     <ul className="space-y-6">
-      <button onClick={() => updateBookingHook()}>update</button>
       {optimisticBookings.map((booking) => (
         <ReservationCard
           booking={booking}

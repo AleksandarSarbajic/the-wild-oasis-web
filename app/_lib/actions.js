@@ -15,6 +15,7 @@ import { stripe } from "./stripe";
 export async function createCheckoutSession(data, bookingData) {
   const bookingItem = {
     quantity: 1,
+
     price_data: {
       currency: CURRENCY,
       product_data: {
@@ -34,6 +35,10 @@ export async function createCheckoutSession(data, bookingData) {
   const checkoutSession = await stripe.checkout.sessions.create({
     mode: "payment",
     submit_type: "pay",
+    metadata: {
+      image_url: bookingData.cabins.image, // Custom field for storing image URL
+      cabin_name: bookingData.cabins.name, // Additional metadata (optional)
+    },
     phone_number_collection: {
       enabled: true,
     },
@@ -181,7 +186,7 @@ export async function updateBookingHook(booking) {
     const { data, error } = await supabase
       .from("bookings")
       .update({ isPaid: true, status: "checked-in" })
-      .eq("id", 393)
+      .eq("id", booking.client_reference_id)
       .select()
       .single();
 
@@ -190,9 +195,8 @@ export async function updateBookingHook(booking) {
       throw new Error(`Booking could not be updated: ${error.message}`);
     }
 
-    return data; // Returning the updated booking data
+    return data;
   } catch (err) {
-    // Catch any other unexpected errors
     throw new Error(`An unexpected error occurred: ${err.message}`);
   }
 }

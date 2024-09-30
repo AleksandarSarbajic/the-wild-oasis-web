@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Thank you for your reservation",
+  description: "Thank you for your reservation",
 };
 
 export default function Page() {

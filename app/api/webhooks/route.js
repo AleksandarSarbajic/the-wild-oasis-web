@@ -23,11 +23,8 @@ export async function POST(req) {
     );
   }
 
-  // Successfully constructed event.
   console.log("✅ Success:", event.id);
-  if (event.type === "checkout.session.completed") {
-    updateBookingHook(data);
-  }
+
   const permittedEvents = [
     "checkout.session.completed",
     "payment_intent.succeeded",
@@ -63,6 +60,6 @@ export async function POST(req) {
       );
     }
   }
-  // Return a response to acknowledge receipt of the event.
+
   return NextResponse.json({ message: "Received" }, { status: 200 });
 }
