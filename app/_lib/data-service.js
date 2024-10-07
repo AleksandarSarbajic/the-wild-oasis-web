@@ -86,7 +86,7 @@ export async function getGuest(email) {
 }
 
 export async function getBooking(id) {
-  const { data, error, count } = await supabase
+  const { data, error } = await supabase
     .from("bookings")
     .select("*")
     .eq("id", id)
@@ -100,15 +100,43 @@ export async function getBooking(id) {
   return data;
 }
 
-export async function getBookings(guestId) {
-  const { data, error, count } = await supabase
+export async function getBookings({ guestId, filter, field }) {
+  let query = supabase
     .from("bookings")
-    // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
     .select(
-      "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId, cabins(name, image)"
+      "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, cabinId, isPaid, cabins(name, image)"
     )
-    .eq("guestId", guestId)
-    .order("startDate");
+    .eq("guestId", guestId);
+
+  const currentDate = new Date().toISOString();
+
+  if (filter && field) {
+    switch (filter) {
+      case "isPaid":
+        query = query.eq(filter, field);
+        break;
+      case "date":
+        if (field === "upcoming") {
+          query = query.gte("startDate", currentDate);
+        } else if (field === "past") {
+          query = query.lt("startDate", currentDate);
+        }
+        break;
+      case "order":
+        query = query.order("startDate", {
+          ascending: field === true || field === "true",
+        });
+        break;
+      default:
+        console.warn("Invalid filter provided");
+    }
+  }
+
+  if (filter !== "order") {
+    query = query.order("startDate", { ascending: true });
+  }
+
+  const { data, error } = await query;
 
   if (error) {
     console.error(error);

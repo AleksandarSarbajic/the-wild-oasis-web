@@ -19,9 +19,10 @@ function ReservationCard({ booking, onDelete, paying }) {
     totalPrice,
     numGuests,
     created_at,
+    isPaid,
     cabins: { name, image },
   } = booking;
-  console.log(booking);
+
   return (
     <div className="flex flex-col md:flex-row border border-primary-800">
       {/* Image Section */}
@@ -31,6 +32,7 @@ function ReservationCard({ booking, onDelete, paying }) {
           src={image}
           alt={`Cabin ${name}`}
           className="object-cover border-b md:border-b-0 md:border-r border-primary-800"
+          loading="lazy"
         />
       </div>
 
@@ -39,15 +41,32 @@ function ReservationCard({ booking, onDelete, paying }) {
           <h3 className="text-lg md:text-xl font-semibold">
             {numNights} nights in Cabin {name}
           </h3>
-          {isPast(new Date(startDate)) ? (
-            <span className="bg-yellow-800 text-yellow-200 h-6 md:h-7 px-2 md:px-3 uppercase text-xs font-bold flex items-center rounded-sm">
-              past
-            </span>
-          ) : (
-            <span className="bg-green-800 text-green-200 h-6 md:h-7 px-2 md:px-3 uppercase text-xs font-bold flex items-center rounded-sm">
-              upcoming
-            </span>
-          )}
+          <div className="flex gap-3">
+            <Badge
+              condition={isPast(new Date(startDate))}
+              label="Past"
+              bgColor="yellow-800"
+              textColor="yellow-200"
+            />
+            <Badge
+              condition={!isPast(new Date(startDate))}
+              label="Upcoming"
+              bgColor="green-800"
+              textColor="green-200"
+            />
+            <Badge
+              condition={!isPaid && !paying}
+              label="UnPaid"
+              bgColor="red-700/30"
+              textColor="red-500"
+            />
+            <Badge
+              condition={isPaid && !paying}
+              label="Paid"
+              bgColor="[#294230]"
+              textColor="[#3bb181]"
+            />
+          </div>
         </div>
 
         <p className="text-base md:text-lg text-primary-300">
@@ -59,15 +78,7 @@ function ReservationCard({ booking, onDelete, paying }) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 md:gap-5 mt-auto items-baseline">
-          <div className="flex gap-3">
-            <p className="text-lg md:text-xl font-semibold text-accent-400">
-              ${totalPrice}
-            </p>
-            <p className="text-primary-300">&bull;</p>
-            <p className="text-base md:text-lg text-primary-300">
-              {numGuests} guest{numGuests > 1 && "s"}
-            </p>
-          </div>
+          <ReservationInfo totalPrice={totalPrice} numGuests={numGuests} />
           <p className="sm:ml-auto text-xs md:text-sm text-primary-400">
             Booked {format(new Date(created_at), "EEE, MMM dd yyyy, p")}
           </p>
@@ -96,9 +107,39 @@ function ReservationCard({ booking, onDelete, paying }) {
         {!isPast(startDate) && paying ? (
           <CheckoutForm bookingId={id} data={booking} uiMode="hosted" />
         ) : null}
+        {isPast(startDate) && (
+          <>
+            <DeleteReservation bookingId={id} onDelete={onDelete} />
+          </>
+        )}
       </div>
     </div>
   );
 }
 
 export default ReservationCard;
+
+function Badge({ condition, label, bgColor, textColor }) {
+  return condition ? (
+    <span
+      aria-label={`Reservation status: ${label}`}
+      className={`bg-${bgColor} text-${textColor} h-6 md:h-7 px-2 md:px-3 uppercase text-xs font-bold flex items-center rounded-sm`}
+    >
+      {label}
+    </span>
+  ) : null;
+}
+
+function ReservationInfo({ totalPrice, numGuests }) {
+  return (
+    <div className="flex gap-3">
+      <p className="text-lg md:text-xl font-semibold text-accent-400">
+        ${totalPrice}
+      </p>
+      <p className="text-primary-300">&bull;</p>
+      <p className="text-base md:text-lg text-primary-300">
+        {numGuests} guest{numGuests > 1 && "s"}
+      </p>
+    </div>
+  );
+}

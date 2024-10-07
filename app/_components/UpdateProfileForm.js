@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import { updateGuest } from "../_lib/actions";
 import Image from "next/image";
@@ -40,7 +40,7 @@ function UpdateProfileForm({ guest, children }) {
           <Image
             width={33}
             height={22}
-            src={countryFlag}
+            src={countryFlag || "https://flagcdn.com/rs.svg"}
             alt="Country flag"
             className="h-5 rounded-sm"
           />
