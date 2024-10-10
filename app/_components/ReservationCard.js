@@ -45,26 +45,26 @@ function ReservationCard({ booking, onDelete, paying }) {
             <Badge
               condition={isPast(new Date(startDate))}
               label="Past"
-              bgColor="yellow-800"
-              textColor="yellow-200"
+              bgColor="bg-yellow-800"
+              textColor="text-yellow-200"
             />
             <Badge
               condition={!isPast(new Date(startDate))}
               label="Upcoming"
-              bgColor="green-800"
-              textColor="green-200"
+              bgColor="bg-green-600"
+              textColor="text-green-200"
             />
             <Badge
               condition={!isPaid && !paying}
               label="UnPaid"
-              bgColor="red-700/30"
-              textColor="red-500"
+              bgColor="bg-red-700/30"
+              textColor="text-red-500"
             />
             <Badge
               condition={isPaid && !paying}
               label="Paid"
-              bgColor="[#294230]"
-              textColor="[#3bb181]"
+              bgColor="bg-[#294230]"
+              textColor="text-[#3bb181]"
             />
           </div>
         </div>
@@ -123,7 +123,7 @@ function Badge({ condition, label, bgColor, textColor }) {
   return condition ? (
     <span
       aria-label={`Reservation status: ${label}`}
-      className={`bg-${bgColor} text-${textColor} h-6 md:h-7 px-2 md:px-3 uppercase text-xs font-bold flex items-center rounded-sm`}
+      className={`${bgColor} ${textColor} h-6 md:h-7 px-2 md:px-3 uppercase text-xs font-bold flex items-center rounded-sm`}
     >
       {label}
     </span>
