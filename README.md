@@ -7,10 +7,10 @@
 <div align="center">
 <img src="https://img.shields.io/npm/v/npm.svg?logo=npm"/>
 <img src="https://img.shields.io/badge/react-v18.2.0-blue?logo=react"/>
-<img src="https://img.shields.io/badge/reactrouterdom-v6.14.2-red?logo=reactrouter"/>
-<img src="https://img.shields.io/badge/styledcomponents-v6.0.7-pink?logo=styledcomponents"/>
-<img src="https://img.shields.io/badge/reactquery-v4.32.6-red?logo=reactquery"/>
-<img src="https://img.shields.io/badge/reacthookform-v7.45.4-red?logo=reacthookform"/>
+<img src="https://img.shields.io/badge/nextjs-v14.2.12-black?logo=nextdotjs"/>
+<img src="https://img.shields.io/badge/axious-v1.7.7-red?logo=axios"/>
+<img src="https://img.shields.io/badge/tailwind-v3.4.1-blue?logo=tailwindcss"/>
+<img src="https://img.shields.io/badge/stripe-v16.1.0-green?logo=stripe"/>
 <img src="https://img.shields.io/badge/supabase-v2.31.0-green?logo=supabase"/>
 </div>  
 
