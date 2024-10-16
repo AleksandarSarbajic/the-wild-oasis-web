@@ -77,39 +77,43 @@ On about page you can see description of our brand with images.
 
 ![Screenshot 2023-10-02 220009](https://github.com/user-attachments/assets/9d511b67-2ab8-45dc-b370-8dbf97267a9f)
 
-When we open a single booking we can can see for how long will they stay, in which cabin are they staying ,name of the person that booked a nights, how many guests, email, national id, total price and if its paid or not.
-
-We can add an breakfast for that booking if they want, confirm if the guest has paid the amount needed and afterwards we can check in or check out a booking or delete it.
-
 ### Cabin Page
+
+When we open a single cabin we can see description, the location and maximum number of guests with an image.
+
+If you want to reserve a stay you must be logged in. You can select minimum 5 nigts, select the number of the guests add breakfast, and description.
 
 ![Screenshot 2023-10-02 220025](https://github.com/user-attachments/assets/d7be3846-b2c0-4721-8ee7-0411912d009f)
 
 ### Guest area home
 
-You can create new accounts for others colleagues. 
+On home page it shows unpaid upcoming reservations and by clicking on the "pay now" button you will be redirected to stripe check out.
 
 ![Screenshot 2023-09-30 164953](https://github.com/user-attachments/assets/96bc9e63-07c4-4d56-aa0e-0f8f27e12578)
 
 ### Guest area reservations
 
-You can adjust settings for minimum and maximum nights/bookings, maximum guest/booking and breakfast % price
+Here you can see all your reservations with multiple filters and you can edit or delete a reservation and it will show you all the details about reservation.
 
 
 ![Screenshot 2023-10-02 220122](https://github.com/user-attachments/assets/fb965288-a45b-4bf0-929f-7f0fb350ef85)
 
 ### Check out
 
-On account page you can change your password, email address, full name and change avatar image.
+Check out page is stripe hosted check out that was implemented you get all the details you can pay in your local currency and use a lot of methods to pay the reservation.
 
 
 ![Screenshot 2023-10-02 121822](https://github.com/user-attachments/assets/7e7236cc-051b-4404-be0a-68a01bb91132)
 
 ### Guest profile
+
+You can see details of your profile and you can change country and your national id number.
  
 ![mode](https://github.com/user-attachments/assets/787f544a-0b8d-4be4-994b-94bc116c41f2)
 
 ### Edit Reservation
+
+For the editing the reservation you can change the number of guests and details.
 
 ![screencapture-the-wild-oasis-web-black-vercel-app-account-reservations-edit-404-2024-10-10-10_43_33](https://github.com/user-attachments/assets/7aafb42f-dea7-4b45-80d5-3bf945c2064f)
 
