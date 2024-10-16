@@ -67,13 +67,13 @@ $ npm run start
 
 ### Cabins page
 
-On Dashboard you can see the number of bookings, sales, number of check ins and occupancy rate for last 7, 30, 90 days. Today guests that that arriving or departing and from the dashboard, you can check in or check out guests. Stay Duration duration summary and sales chart for chosen number of days.
+On cabins page you can see every single one of cabins with price, image, price and for how many guests it is. You can filter them with number of guests deppending what you need.
 ![checkingBooking](https://github.com/user-attachments/assets/dd8c30ed-3b7e-43d2-8773-8b3b9140283f)
 
 
 ### About Page
 
-On bookings page you can see all bookings that are checked out, checked in and unconfirmed. For the bookings you can sort them by date and the amount. For every booking you can see the details, delete them or check in or check out if needed.
+On about page you can see description of our brand with images.
 
 ![Screenshot 2023-10-02 220009](https://github.com/user-attachments/assets/9d511b67-2ab8-45dc-b370-8dbf97267a9f)
 
