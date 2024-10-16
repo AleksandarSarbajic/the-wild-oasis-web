@@ -38,14 +38,7 @@
 
 ## Screenshot
 
-![dashboard](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/ac4271e4-6d28-4d7a-bdb6-7bbe47b3367d)
-
-
-
-
-
-
-
+![dashboard](https://github.com/user-attachments/assets/cfbe72b1-5a8a-46a7-94da-bc4aa4e84ce9)
 
 ## Quicstart
 
@@ -75,42 +68,46 @@ $ npm run start
 
 On Dashboard you can see the number of bookings, sales, number of check ins and occupancy rate for last 7, 30, 90 days. Today guests that that arriving or departing and from the dashboard, you can check in or check out guests. Stay Duration duration summary and sales chart for chosen number of days.
 
-![Screenshot 2023-09-30 164953](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/a83c7c15-6d3b-48a1-8a6b-f669f492ab6f)
+![Screenshot 2023-09-30 164953](https://github.com/user-attachments/assets/96bc9e63-07c4-4d56-aa0e-0f8f27e12578)
 
 ### Bookings Page
 
 On bookings page you can see all bookings that are checked out, checked in and unconfirmed. For the bookings you can sort them by date and the amount. For every booking you can see the details, delete them or check in or check out if needed.
 
-![Screenshot 2023-10-02 121822](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/5238b22f-402d-4d4a-8023-42508933bae0)
+![Screenshot 2023-10-02 121822](https://github.com/user-attachments/assets/7e7236cc-051b-4404-be0a-68a01bb91132)
 
 When we open a single booking we can can see for how long will they stay, in which cabin are they staying ,name of the person that booked a nights, how many guests, email, national id, total price and if its paid or not.
 
 We can add an breakfast for that booking if they want, confirm if the guest has paid the amount needed and afterwards we can check in or check out a booking or delete it.
 
-![checkingBooking](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/f47d124f-a0b3-450e-b557-5867fa5d8e2e)
+![checkingBooking](https://github.com/user-attachments/assets/dd8c30ed-3b7e-43d2-8773-8b3b9140283f)
 
 ### Create a new user page
 
 You can create new accounts for others colleagues. 
 
-![Screenshot 2023-10-02 220009](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/74658280-d4b7-4bdc-b479-6558df497955)
+![Screenshot 2023-10-02 220009](https://github.com/user-attachments/assets/9d511b67-2ab8-45dc-b370-8dbf97267a9f)
 
 ### Settings page
 
 You can adjust settings for minimum and maximum nights/bookings, maximum guest/booking and breakfast % price
 
-![Screenshot 2023-10-02 220025](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/9539e49d-6418-4736-a4e6-83da3afce218)
+
+![Screenshot 2023-10-02 220025](https://github.com/user-attachments/assets/d7be3846-b2c0-4721-8ee7-0411912d009f)
 
 ### Account page
 
 On account page you can change your password, email address, full name and change avatar image.
 
-![Screenshot 2023-10-02 220122](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/251dc81b-d9b4-4a65-9684-04d314f03e64)
+
+![Screenshot 2023-10-02 220122](https://github.com/user-attachments/assets/fb965288-a45b-4bf0-929f-7f0fb350ef85)
 
 The Wild Oasis also supports light and dark mode!
  
-![mode](https://github.com/AleksandarSarbajic/the-wild-oasis/assets/114814838/d4ac3936-edf7-4fe4-b82e-98102f3f5352)
+![mode](https://github.com/user-attachments/assets/787f544a-0b8d-4be4-994b-94bc116c41f2)
 
+
+![screencapture-the-wild-oasis-web-black-vercel-app-account-reservations-edit-404-2024-10-10-10_43_33](https://github.com/user-attachments/assets/7aafb42f-dea7-4b45-80d5-3bf945c2064f)
 
 
 
