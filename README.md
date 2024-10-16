@@ -28,10 +28,11 @@
 ## Technologies Used
 
   - [React](https://react.dev/)
-  - [React Router Dom](https://reactrouter.com/en/main)
-  - [Styled componenets](https://styled-components.com/)
-  - [React Query](https://tanstack.com/query/v3/)
-  - [React Hook Form](https://www.react-hook-form.com/)
+  - [NextJS](https://vercel.com/frameworks/nextjs)
+  - [NextAuth](https://next-auth.js.org/)
+  - [TailWindCss](https://tailwindcss.com/docs/customizing-colors)
+  - [Axios](https://axios-http.com/)
+  - [Stripe](https://stripe.com/)
   - [Supabase](https://supabase.com/)
 
 
