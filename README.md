@@ -1,9 +1,10 @@
 <div align="center">
- <img  src="https://github.com/AleksandarSarbajic/the-wild-oasis/blob/main/public/logo-dark.png"/>
+ <img  src="https://github.com/user-attachments/assets/907f8ec6-41c2-4f13-a3bd-243fb32f4831"/>
  </div>
 
 
- 
+
+
 <div align="center">
 <img src="https://img.shields.io/npm/v/npm.svg?logo=npm"/>
 <img src="https://img.shields.io/badge/react-v18.2.0-blue?logo=react"/>
@@ -64,43 +65,43 @@ $ npm run start
 
 ## How It Works
 
-### Dashboard page
+### Cabins page
 
 On Dashboard you can see the number of bookings, sales, number of check ins and occupancy rate for last 7, 30, 90 days. Today guests that that arriving or departing and from the dashboard, you can check in or check out guests. Stay Duration duration summary and sales chart for chosen number of days.
+![checkingBooking](https://github.com/user-attachments/assets/dd8c30ed-3b7e-43d2-8773-8b3b9140283f)
 
-![Screenshot 2023-09-30 164953](https://github.com/user-attachments/assets/96bc9e63-07c4-4d56-aa0e-0f8f27e12578)
 
 ### Bookings Page
 
 On bookings page you can see all bookings that are checked out, checked in and unconfirmed. For the bookings you can sort them by date and the amount. For every booking you can see the details, delete them or check in or check out if needed.
 
-![Screenshot 2023-10-02 121822](https://github.com/user-attachments/assets/7e7236cc-051b-4404-be0a-68a01bb91132)
+![Screenshot 2023-10-02 220009](https://github.com/user-attachments/assets/9d511b67-2ab8-45dc-b370-8dbf97267a9f)
 
 When we open a single booking we can can see for how long will they stay, in which cabin are they staying ,name of the person that booked a nights, how many guests, email, national id, total price and if its paid or not.
 
 We can add an breakfast for that booking if they want, confirm if the guest has paid the amount needed and afterwards we can check in or check out a booking or delete it.
 
-![checkingBooking](https://github.com/user-attachments/assets/dd8c30ed-3b7e-43d2-8773-8b3b9140283f)
 
+![Screenshot 2023-10-02 220025](https://github.com/user-attachments/assets/d7be3846-b2c0-4721-8ee7-0411912d009f)
 ### Create a new user page
 
 You can create new accounts for others colleagues. 
 
-![Screenshot 2023-10-02 220009](https://github.com/user-attachments/assets/9d511b67-2ab8-45dc-b370-8dbf97267a9f)
+![Screenshot 2023-09-30 164953](https://github.com/user-attachments/assets/96bc9e63-07c4-4d56-aa0e-0f8f27e12578)
 
 ### Settings page
 
 You can adjust settings for minimum and maximum nights/bookings, maximum guest/booking and breakfast % price
 
 
-![Screenshot 2023-10-02 220025](https://github.com/user-attachments/assets/d7be3846-b2c0-4721-8ee7-0411912d009f)
+![Screenshot 2023-10-02 220122](https://github.com/user-attachments/assets/fb965288-a45b-4bf0-929f-7f0fb350ef85)
 
 ### Account page
 
 On account page you can change your password, email address, full name and change avatar image.
 
 
-![Screenshot 2023-10-02 220122](https://github.com/user-attachments/assets/fb965288-a45b-4bf0-929f-7f0fb350ef85)
+![Screenshot 2023-10-02 121822](https://github.com/user-attachments/assets/7e7236cc-051b-4404-be0a-68a01bb91132)
 
 The Wild Oasis also supports light and dark mode!
  
