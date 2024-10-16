@@ -71,7 +71,7 @@ On Dashboard you can see the number of bookings, sales, number of check ins and 
 ![checkingBooking](https://github.com/user-attachments/assets/dd8c30ed-3b7e-43d2-8773-8b3b9140283f)
 
 
-### Bookings Page
+### About Page
 
 On bookings page you can see all bookings that are checked out, checked in and unconfirmed. For the bookings you can sort them by date and the amount. For every booking you can see the details, delete them or check in or check out if needed.
 
@@ -81,32 +81,35 @@ When we open a single booking we can can see for how long will they stay, in whi
 
 We can add an breakfast for that booking if they want, confirm if the guest has paid the amount needed and afterwards we can check in or check out a booking or delete it.
 
+### Cabin Page
 
 ![Screenshot 2023-10-02 220025](https://github.com/user-attachments/assets/d7be3846-b2c0-4721-8ee7-0411912d009f)
-### Create a new user page
+
+### Guest area home
 
 You can create new accounts for others colleagues. 
 
 ![Screenshot 2023-09-30 164953](https://github.com/user-attachments/assets/96bc9e63-07c4-4d56-aa0e-0f8f27e12578)
 
-### Settings page
+### Guest area reservations
 
 You can adjust settings for minimum and maximum nights/bookings, maximum guest/booking and breakfast % price
 
 
 ![Screenshot 2023-10-02 220122](https://github.com/user-attachments/assets/fb965288-a45b-4bf0-929f-7f0fb350ef85)
 
-### Account page
+### Check out
 
 On account page you can change your password, email address, full name and change avatar image.
 
 
 ![Screenshot 2023-10-02 121822](https://github.com/user-attachments/assets/7e7236cc-051b-4404-be0a-68a01bb91132)
 
-The Wild Oasis also supports light and dark mode!
+### Guest profile
  
 ![mode](https://github.com/user-attachments/assets/787f544a-0b8d-4be4-994b-94bc116c41f2)
 
+### Edit Reservation
 
 ![screencapture-the-wild-oasis-web-black-vercel-app-account-reservations-edit-404-2024-10-10-10_43_33](https://github.com/user-attachments/assets/7aafb42f-dea7-4b45-80d5-3bf945c2064f)
 
