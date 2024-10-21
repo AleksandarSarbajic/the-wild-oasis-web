@@ -121,9 +121,9 @@ For the editing the reservation you can change the number of guests and details.
 
 ## You may also like...
 
-- [Tasty Trail](https://github.com/AleksandarSarbajic/the-wild-oasis) - Food ordering app
-- [Fast React Pizza](https://github.com/AleksandarSarbajic/fast-react-pizza) - Pizza ordering app
-- [World Wise](https://github.com/AleksandarSarbajic/WorldWise) - Countries visited tracking app
+- [WorkoutNothing](https://github.com/AleksandarSarbajic/WorkoutNothing) - Workout app
+- [Bug Book](https://github.com/AleksandarSarbajic/donda-bugbook) - Social Media app
+- [Nothing To do](https://github.com/AleksandarSarbajic/NothingTodo) - To Do app
 
 ## License
 
