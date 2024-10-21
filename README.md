@@ -50,7 +50,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com/) and [
 $ git clone https://github.com/AleksandarSarbajic/the-wild-oasis-web
 
 # Go into the repository
-$ cd the-wild-oasis
+$ cd the-wild-oasis-web
 
 # Install dependencies
 $ npm install
